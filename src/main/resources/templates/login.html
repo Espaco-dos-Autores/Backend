@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+<title>Espaço dos Autores - Login</title>
+<meta name="description" content="Espaço dos Autores | Login ">
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="https://www.espacodosautores.pt/images/logobranco.png" type="image/x-icon">
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+
+body{
+	background-image: url(https://i.imgur.com/LRj65wq.gif);
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	font-family: 'Noto Sans', sans-serif;
+}
+.text-center{
+	color:#fff;	
+	text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.box{
+	position:absolute;
+	left:30%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	border-radius:18px;
+	padding:70px 100px;
+}
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;	
+    pointer-events:none;
+	transition: all 0.5s ease-in-out;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #0044ff;	
+}
+.btn{
+	color:#fff;
+	background-color:#0044ff;
+	outline: none;
+    border: 0;
+    color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	margin-top:50px;
+	border-radius:2px;
+	cursor:pointer;
+    margin-left: 40%;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;
+	
+}
+.text{
+	text-align: center;
+	color: azure;
+	text-decoration: none;
+}
+.text2{
+	text-decoration: none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+        <form th:action="@{/login}" method="post">
+		
+            <p class="text">Para continuar efetue o login.</p>
+		
+        <div class="input-container">
+            <input type="text" name="username" size="40px" required="required" value="" /><br>
+            <label>Usuario</label>		
+        </div>
+        <div class="input-container">		
+		<input type="password" name="password" size="40px" required="required" /> <br>
+            <label>Senha</label>
+        </div>
+            <input type="submit" class="btn" value="Login" />
+            <p class="text">Sem cadastro ? <a class="text2" th:href="@{/register}">Cadastre-se aqui</a></p>
+    </form>	
+    </div>
+</body>
+</html>
